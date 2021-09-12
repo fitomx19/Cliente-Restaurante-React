@@ -57,7 +57,7 @@ const Orden = ({orden}) =>{
                     </div>
             )}
             {orden.tiempoentrega > 0 && (
-                <p className="text-gray-700">Teimpo de ENtrega: 
+                <p className="text-gray-700">   Tiempo de Entrega: 
                 <span className="font-bold">{orden.tiempoentrega} Minutos</span></p>
             )}
             {!orden.completado && orden.tiempoentrega > 0 &&(

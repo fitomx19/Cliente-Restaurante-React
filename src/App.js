@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router';
 import firebase, {FirebaseContext} from './firebase/index';
 
 import Ordenes from './components/paginas/Ordenes';
+import OrdenesListas from './components/paginas/OrdenesListas';
 import Menu from './components/paginas/Menu';
 import NuevoPlatillo from './components/paginas/NuevoPlatillo';
 import Sidebar from './components/ui/SIdebar';
@@ -19,6 +20,7 @@ function App() {
       <div className="md:w-3/5 xl:w-4/5 p-6">
       <Routes> 
           <Route path="/" element={<Ordenes/>}/>
+          <Route path="/ordenes-listas" element={<OrdenesListas/>}/>
           <Route path="/menu" element={<Menu/>}/>
           <Route path="/nuevo-platillo" element={<NuevoPlatillo/>}/>
      </Routes>

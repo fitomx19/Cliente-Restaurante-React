@@ -3,49 +3,47 @@ import React, {useEffect,useState,useContext} from 'react'
 import {FirebaseContext, firebaseContext} from '../../firebase';
 import Orden from '../ui/Orden';
 
-const Ordenes = () =>{
+const OrdenesListas = () =>{
 
     //consulta en RT
     const {firebase} = useContext(FirebaseContext);
-    const [ordenes, guardarOrdenes] = useState([]);
-   
+
+    const [ordenesfin, guardarOrdenesfin] = useState([]);
 
     useEffect(() =>{
-        const obtenerOrdenes = () =>{
-            firebase.db.collection('ordenes').where('completado', "==" ,false).onSnapshot(manejarSnapshot);
+      
+        const obtenerOrdenesTerminadas = () =>{
+            firebase.db.collection('ordenes').where('completado', "==" ,true).onSnapshot(manejarSnapshotTerminado);
         }
-        obtenerOrdenes();
-
-  
+        obtenerOrdenesTerminadas();
 
     },[]);
-    function manejarSnapshot(snapshot){
-        const ordenes = snapshot.docs.map(doc =>{
+   
+
+    function manejarSnapshotTerminado(snapshot){
+        const ordenesfin = snapshot.docs.map(doc =>{
                 return{
                     id: doc.id,
                 ...doc.data()
                 }
         });
-        guardarOrdenes(ordenes);
+        guardarOrdenesfin(ordenesfin);
     }
-
-   
 
 
     return(
         <>
-        <h1 className="text-3xl font-light mb-4">Ordenes entrantes</h1>
+
+        <h1 className="text-3xl font-light mb-4">Ordenes terminadas</h1>
         <div className="sm:flex sm:flex-wrap -mx-3">
-        {ordenes.map(orden =>(
+        {ordenesfin.map(orden =>(
          <Orden key={orden.id} orden={orden} />   
         ))}
         </div>
-
-     
         </>
 
         
     );
 }
 
-export default Ordenes;
+export default OrdenesListas;
