@@ -1,5 +1,6 @@
 import React, {useState,useContext} from 'react'
 import {FirebaseContext} from '../../firebase';
+import moment from "moment";
 
 const Orden = ({orden}) =>{
 
@@ -31,8 +32,17 @@ const Orden = ({orden}) =>{
         <div className="p-3 shadow-md bg-white">
             <h1 className="text-yellow-600 text-lg font-bold">{orden.id}</h1>
             {orden.orden.map( platillos =>(
-                <p className="text-gray-600"> {platillos.cantidad} {platillos.nombre}</p>
+                <div>
+                    <p className="text-gray-600"> {platillos.cantidad} {platillos.nombre}<br>
+                    </br> </p>
+                    
+                
+                </div>
+                
             ))}
+           
+                    <p className="text-gray-600"> Creado: {moment(orden.creado).format('LLL')} </p>
+                 
             <p className="text-gray-700 font-bold">Total a pagar: $ {orden.total}</p>
             {orden.tiempoentrega === 0 && (
                 <div className="mb-4">
