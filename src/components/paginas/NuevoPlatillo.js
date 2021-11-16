@@ -127,12 +127,34 @@ const navigate = useNavigate();
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="categoria">Categoria</label>
                         <select value={formik.values.categoria}  onBlur={formik.handleBlur} onChange={formik.handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="categoria" id="categoria">
                         <option value="">--Seleccione--</option>
-                        <option value="desayuno">Desayuno</option>
-                        <option value="comida">Comida</option>
-                        <option value="cena">Cena</option>
-                        <option value="bebidas">Bebidas</option>
-                        <option value="postre">Postre</option>
-                        <option value="ensaladas">Ensaladas</option>
+                        <option value="HAMBURGUESAS">HAMBURGUESAS 🍔</option>
+                        <option value="HOTDOG">HOTDOG</option>
+                        <option value="ALITAS">ALITAS</option>
+                        <option value="CHAPATAS">CHAPATAS</option>
+                        <option value="COSTILLAS">COSTILLAS</option>
+                        <option value="TENDERS">TENDERS</option>
+                        <option value="BONELESS">BONELESS</option>
+                        <option value="BANDERILLAS">BANDERILLAS</option>
+                        <option value="BURRITOS">BURRITOS</option>
+                        <option value="CLUBSANDWICH">CLUB SANDWICH</option>
+                        <option value="QUESOCARNE">QUESO CARNE</option>
+                        <option value="NUGETTS">NUGETTS</option>
+                        <option value="PALOMITASDEPOLLO">PALOMITAS DE POLLO</option>
+                        <option value="SALCHIPULPO">SALCHIPULPO</option>
+                        <option value="NACHOS">NACHOS</option>
+                        <option value="PAPASRELLENAS">PAPAS RELLENAS</option>
+                        <option value="GUACAMOLE">GUACAMOLE</option>
+                        <option value="MOLCAJETE">MOLCAJETE</option>
+                        <option value="CREPAS">CREPAS</option>
+                        <option value="WAFLES">WAFLES</option>
+                        <option value="FRAPPES">FRAPPES</option>
+                        <option value="CHEESECAKE">CHEESECAKE</option>
+                        <option value="SMOOTHIES">SMOOTHIES</option>
+                        <option value="CHEESECAKE">CHEESECAKE</option>
+                        <option value="SODAITALIANA">SODA ITALIANA</option>
+                        <option value="MALTEADASLICUALOCAS">MALTEADAS LICUA-LOCAS</option>
+                        <option value="BEBIDASLICUALOCAS">BEBIDAS LICUA-LOCAS</option>
+                        <option value="BEBIDAS">BEBIDAS</option>
                      </select>
                   </div>
                   {formik.touched.categoria && formik.errors.categoria ? (
