@@ -1,11 +1,14 @@
 import React, {useState,useContext} from 'react'
 import {FirebaseContext} from '../../firebase';
 import moment from "moment";
+import 'moment/locale/es';
+
+
 
 const Orden = ({orden}) =>{
-
+    moment.locale('es');
     const [tiempoentrega, guardarTiempoEntrega] = useState(0);
-
+    console.log(orden.orden)
 
     const {firebase} = useContext(FirebaseContext);
 
@@ -30,11 +33,11 @@ const Orden = ({orden}) =>{
     return(
         <div className="sm:w-1/2 lg:w-1/3 px-2 mb-4">
         <div className="p-3 shadow-md bg-white">
-            <h1 className="text-yellow-600 text-xl font-bold">{orden.id}</h1>
-            {orden.orden.map( platillos =>(
+           
+            {orden.orden.map( (platillos , i)=>(
                 <div>
-                    <p  className="text-gray-600 text-4xl"> {platillos.cantidad} {platillos.nombre}<br>
-                    </br> </p>
+                  
+                    <p  className="text-yellow-600 font-black text-3xl inline"> {platillos.cantidad} </p><p className="text-gray-800 text-2xl inline">{platillos.nombre}</p>
                     
                 
                 </div>
@@ -45,11 +48,22 @@ const Orden = ({orden}) =>{
                     {orden.detalles != "" && ( 
                         <p className="text-gray-600"> Detalles: {orden.detalles}</p>
                     )}
+                     {orden.mesa != "" && ( 
+                        <p className="text-gray-600 font-black text-3xl"> Mesa: {orden.mesa}</p>
+                    )}
+                     {orden.id != "" && ( 
+                        <p className="text-gray-600 font-light text-small"> _id: {orden.id}</p>
+                    )}
+                    {orden.creado != "" && ( 
+                        <p className="text-gray-600"> Recibido: { moment(orden.creado).format('lll')}</p>
+                    )}
                     
                  
             
             {orden.tiempoentrega === 0 && (
                 <div className="mb-4">
+                    
+                   {1== 2 ?<div>
                     <label className="block text-gray-700 text-sm font-bold mb-2">
                         Tiempo de Entrega
                     </label>
@@ -68,6 +82,8 @@ const Orden = ({orden}) =>{
                     className="bg-gray-800 hover:bg-gray-900 w-full mt-5 p-2 text-white uppercase font-bold" >
                         Definir tiempo
                     </button>
+                   </div>:null}
+
                     </div>
             )}
             {orden.tiempoentrega > 0 && (

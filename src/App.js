@@ -9,7 +9,7 @@ import OrdenesListas from './components/paginas/OrdenesListas';
 import Menu from './components/paginas/Menu';
 import NuevoPlatillo from './components/paginas/NuevoPlatillo';
 import Sidebar from './components/ui/SIdebar';
-
+import Bebidas from './components/paginas/Bebidas'
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
           <Route path="/ordenes-listas" element={<OrdenesListas/>}/>
           <Route path="/menu" element={<Menu/>}/>
           <Route path="/nuevo-platillo" element={<NuevoPlatillo/>}/>
+          <Route path="/bebidas" element={<Bebidas/>}/>
      </Routes>
       </div>
        

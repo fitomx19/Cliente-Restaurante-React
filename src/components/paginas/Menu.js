@@ -33,7 +33,7 @@ function manejarSnapshot(snapshot){
 
     return(
         <>
-        <h1 className="text-3xl font-light mb-4">Menu mafufas</h1>
+        <h1 className="text-3xl font-light mb-4">Menu comida y bebida</h1>
         <Link to="/nuevo-platillo" className=" bg-blue-800 hover:bg-700, inline-block mb-5 p-2 text-white uppercase font-bold">NUevo Platillo</Link>
         {platillos.map(platillo =>(
             <Platillo key={platillo.id} platillo={platillo} />
